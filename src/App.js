@@ -6,13 +6,15 @@ import Header from "./components/Header/Header";
 import Modal from "./components/Modal/Modal";
 import Tab from "./components/Tab/Tab";
 import Card from "./components/Card/Card";
+import Cart from "./components/Cart/Cart";
 
 import menu from "./assets/data/menu.json";
 
 import { useMyContext } from "./context/MyContext";
 
 const Content = styled.div`
-  padding-top: 150px;
+  padding: 150px 0
+    ${(props) => (props.cartVisible ? "120px" : theme.spacing.xs)} 0;
 `;
 
 const Today = styled.div`
@@ -21,9 +23,11 @@ const Today = styled.div`
 `;
 
 function App() {
+  const { activeTab } = useMyContext();
+  const { data } = useMyContext();
+
   const [scrollDown, setScrollDown] = useState(false);
   const [oldScroll, setOldScroll] = useState(0);
-  const { activeTab } = useMyContext();
   const [items, setItems] = useState(menu);
 
   const handleFilter = (type) => {
@@ -39,12 +43,14 @@ function App() {
     setOldScroll(window.pageYOffset);
   };
 
+  const cartVisible = data.length > 0 ? true : false;
+
   return (
     <>
       <Header />
       <Modal />
       <Tab visible={!scrollDown ? true : false} />
-      <Content>
+      <Content cartVisible={cartVisible}>
         <Today>Kamis. 13 Maret 2019</Today>
         {items.map((item, index) => {
           return (
@@ -56,10 +62,11 @@ function App() {
               rating={item.rating}
               store={item.store}
               type={item.type}
-            ></Card>
+            />
           );
         })}
       </Content>
+      <Cart visible={cartVisible} />
     </>
   );
 }

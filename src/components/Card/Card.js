@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import theme from "../../assets/styles/theme";
+import { useMyContext } from "../../context/MyContext";
 
 const Content = styled.div`
   padding: ${theme.spacing.md};
@@ -57,6 +58,8 @@ const AddButton = styled.div`
 `;
 
 const Card = ({ ...item }) => {
+  const { handleData } = useMyContext();
+
   return (
     <>
       <Content>
@@ -75,8 +78,9 @@ const Card = ({ ...item }) => {
           <div>
             <Price>Rp {item.price}</Price>
             <AddButton>
-              <button>
-                ADD&nbsp;<span className="material-icons">add</span>
+              <button onClick={() => handleData(item.price)}>
+                ADD&nbsp;
+                <span className="material-icons">add</span>
               </button>
             </AddButton>
           </div>
