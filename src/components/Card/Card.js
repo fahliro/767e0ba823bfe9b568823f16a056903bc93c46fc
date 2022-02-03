@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import theme from "../../assets/styles/theme";
 import { useMyContext } from "../../context/MyContext";
+import { rupiah } from "../../helpers/globalFunction";
 
 const Content = styled.div`
   padding: ${theme.spacing.md};
@@ -89,7 +90,7 @@ const Card = ({ ...item }) => {
             by {item.store} &bull; {item.type}
           </Store>
           <div>
-            <Price>Rp {item.price}</Price>
+            <Price>{rupiah(item.price)}</Price>
             <AddButton>
               <button onClick={() => handleData(item.price)}>
                 ADD&nbsp;

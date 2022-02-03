@@ -3,6 +3,7 @@ import { useState } from "react/cjs/react.development";
 import styled from "styled-components";
 import theme from "../../assets/styles/theme";
 import { useMyContext } from "../../context/MyContext";
+import { rupiah } from "../../helpers/globalFunction";
 
 const Content = styled.div`
   opacity: ${(props) => (props.visible ? 1 : 0)};
@@ -59,7 +60,8 @@ const Cart = ({ visible }) => {
         <Wrapper>
           <Total>
             <div>
-              {data.length} {data.length === 1 ? "Item" : "Items"} | Rp {total}
+              {data.length} {data.length === 1 ? "Item" : "Items"} |{" "}
+              {rupiah(total)}
             </div>
             <div>Termasuk ongkos kirim</div>
           </Total>
