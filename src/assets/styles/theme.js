@@ -27,7 +27,7 @@ const theme = {
   device: {
     mobile: "(max-width: 375px)",
   },
-  boxShadow: "box-shadow: 0px 8px 10px 0px rgba(10,31,68,0.1)",
+  boxShadow: "0px 8px 10px 0px rgba(10,31,68,0.1)",
   backgroundTransparent:
     "linear-gradient(to bottom, rgba(255, 255, 255, 0), #ffffff)",
 };

@@ -7,6 +7,12 @@ const Content = styled.div`
   justify-content: center;
   background: ${theme.colors.white};
   padding: ${theme.spacing.md};
+  position: fixed;
+  width: 100%;
+  top: 70px;
+  opacity: ${(props) => (props.visible ? 1 : 0)};
+  z-index: ${(props) => (props.visible ? 0 : -1)};
+  transition: opacity 0.3s;
 `;
 
 const LunchSection = styled.div`
@@ -24,12 +30,12 @@ const DinnerSection = styled(LunchSection)`
   border-radius: 0 ${theme.spacing.sm} ${theme.spacing.sm} 0;
 `;
 
-const Tab = () => {
+const Tab = ({ visible }) => {
   const { activeTab, handleActiveTab } = useMyContext();
 
   return (
     <>
-      <Content>
+      <Content visible={visible}>
         <LunchSection
           active={activeTab === 0 ? true : false}
           onClick={() => handleActiveTab(0)}

@@ -7,6 +7,8 @@ const Content = styled.div`
   display: flex;
   align-items: center;
   background: ${theme.colors.white};
+  position: fixed;
+  width: 100%;
 `;
 
 const BackIcon = styled.div`
