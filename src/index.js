@@ -6,13 +6,16 @@ import reportWebVitals from "./reportWebVitals";
 import { ThemeProvider } from "styled-components";
 import theme from "./assets/styles/theme";
 import GlobalStyle from "./assets/styles/globalStyles";
+import { MyProvider } from "./context/MyContext";
 
 ReactDOM.render(
   <React.StrictMode>
-    <GlobalStyle />
-    <ThemeProvider theme={theme}>
-      <App />
-    </ThemeProvider>
+    <MyProvider>
+      <GlobalStyle />
+      <ThemeProvider theme={theme}>
+        <App />
+      </ThemeProvider>
+    </MyProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

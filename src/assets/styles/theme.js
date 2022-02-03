@@ -6,6 +6,7 @@ const theme = {
     rollingStone: "#6E7679",
     iron: "#e2e4e4",
     athensGray: "#F1F1F2",
+    white: "#fff",
   },
   fonts: "Open Sans, sans-serif",
   fontSizes: {
@@ -21,6 +22,7 @@ const theme = {
     md: "16px",
     lg: "24px",
     xl: "32px",
+    xxl: "40px",
   },
   device: {
     mobile: "(max-width: 375px)",
