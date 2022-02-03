@@ -57,8 +57,10 @@ const Modal = () => {
     <>
       <Backdrop visible={modalVisible}>
         <Content visible={modalVisible}>
-          <CloseButton onClick={handleModalVisible}>
-            <span className="material-icons">close</span>
+          <CloseButton>
+            <span className="material-icons" onClick={handleModalVisible}>
+              close
+            </span>
           </CloseButton>
           <Label>Cek makanan yang tersedia di lokasi kamu!</Label>
           <Input>

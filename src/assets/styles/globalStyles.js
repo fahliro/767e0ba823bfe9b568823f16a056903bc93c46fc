@@ -9,6 +9,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     font-family: ${theme.fonts};
     color: ${theme.colors.capeCod};
+    background: ${theme.colors.athensGray};
   }
   input {
     border: 0;

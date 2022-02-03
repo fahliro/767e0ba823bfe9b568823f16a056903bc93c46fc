@@ -6,6 +6,7 @@ const Content = styled.div`
   padding: ${theme.spacing.md};
   display: flex;
   align-items: center;
+  background: ${theme.colors.white};
 `;
 
 const BackIcon = styled.div`
