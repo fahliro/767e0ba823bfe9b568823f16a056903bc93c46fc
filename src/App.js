@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import theme from "./assets/styles/theme";
 
@@ -7,7 +7,9 @@ import Modal from "./components/Modal/Modal";
 import Tab from "./components/Tab/Tab";
 import Card from "./components/Card/Card";
 
-import items from "./assets/data/data.json";
+import menu from "./assets/data/menu.json";
+
+import { useMyContext } from "./context/MyContext";
 
 const Content = styled.div`
   padding-top: 150px;
@@ -21,6 +23,16 @@ const Today = styled.div`
 function App() {
   const [scrollDown, setScrollDown] = useState(false);
   const [oldScroll, setOldScroll] = useState(0);
+  const { activeTab } = useMyContext();
+  const [items, setItems] = useState(menu);
+
+  const handleFilter = (type) => {
+    return menu.filter((x) => x.type.toLowerCase() === type);
+  };
+
+  useEffect(() => {
+    setItems(activeTab === 0 ? handleFilter("lunch") : handleFilter("dinner"));
+  }, [activeTab]);
 
   window.onscroll = () => {
     setScrollDown(oldScroll < window.pageYOffset);
