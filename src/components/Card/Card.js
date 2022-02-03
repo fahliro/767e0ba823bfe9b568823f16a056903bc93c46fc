@@ -30,12 +30,13 @@ const Description = styled.div`
 const Rating = styled.div`
   display: flex;
   align-items: center;
-  & span:first-child {
-    margin-right: ${theme.spacing.sm};
-  }
-  & span:last-child {
+  & span {
     font-size: ${theme.fontSizes.md};
     color: ${theme.colors.sunsetOrange};
+    &:first-child {
+      margin-right: ${theme.spacing.sm};
+      color: ${theme.colors.rollingStone};
+    }
   }
 `;
 const Title = styled.div`
@@ -60,6 +61,18 @@ const AddButton = styled.div`
 const Card = ({ ...item }) => {
   const { handleData } = useMyContext();
 
+  const Star = () => {
+    const items = [];
+    for (let i = 0; i < item.rating; i++) {
+      items.push(
+        <span className="material-icons" key={i}>
+          star
+        </span>
+      );
+    }
+    return items;
+  };
+
   return (
     <>
       <Content>
@@ -69,7 +82,7 @@ const Card = ({ ...item }) => {
         <Description>
           <Rating>
             <span>{item.rating}</span>
-            <span className="material-icons">star</span>
+            {Star()}
           </Rating>
           <Title>{item.title}</Title>
           <Store>
