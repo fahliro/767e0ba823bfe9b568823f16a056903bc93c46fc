@@ -23,7 +23,7 @@ const Item = styled.div`
       : theme.colors.capeCod};
   background: ${(props) => (props.selected ? theme.colors.capeCod : "")};
   border-radius: 50%;
-  padding: 6px;
+  padding: 3px;
   & div:first-child {
     font-size: ${theme.fontSizes.sm};
   }

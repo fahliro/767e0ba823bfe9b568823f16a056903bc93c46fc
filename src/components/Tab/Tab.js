@@ -9,7 +9,7 @@ const Content = styled.div`
   padding: ${theme.spacing.md};
   position: fixed;
   width: 100%;
-  top: 159px;
+  top: 153px;
   opacity: ${(props) => (props.visible ? 1 : 0)};
   z-index: ${(props) => (props.visible ? 0 : -1)};
   transition: opacity 0.3s;

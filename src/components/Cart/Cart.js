@@ -17,7 +17,7 @@ const Content = styled.div`
 `;
 
 const Wrapper = styled.div`
-  padding: ${theme.spacing.md};
+  padding: ${theme.spacing.sm} ${theme.spacing.md};
   background: ${theme.colors.stiletto};
   color: ${theme.colors.iron};
   display: flex;
@@ -29,6 +29,9 @@ const Total = styled.div`
   & div:first-child {
     font-size: ${theme.fontSizes.xl};
     font-weight: bold;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 `;
 const Checkout = styled.div`
