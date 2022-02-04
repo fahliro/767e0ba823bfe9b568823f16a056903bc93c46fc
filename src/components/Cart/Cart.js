@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { useState } from "react/cjs/react.development";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import theme from "../../assets/styles/theme";
 import { useMyContext } from "../../context/MyContext";
