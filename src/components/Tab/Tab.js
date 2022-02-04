@@ -9,17 +9,20 @@ const Content = styled.div`
   padding: ${theme.spacing.md};
   position: fixed;
   width: 100%;
-  top: 70px;
+  top: 143px;
   opacity: ${(props) => (props.visible ? 1 : 0)};
   z-index: ${(props) => (props.visible ? 0 : -1)};
   transition: opacity 0.3s;
+  box-shadow: ${theme.boxShadow};
 `;
 
 const LunchSection = styled.div`
   border: 1px solid
     ${(props) => (props.active ? theme.colors.capeCod : theme.colors.iron)};
   color: ${theme.colors.iron};
-  padding: ${theme.spacing.xs} ${theme.spacing.xl};
+  padding: ${theme.spacing.sm};
+  text-align: center;
+  width: 100%;
   border-radius: ${theme.spacing.sm} 0 0 ${theme.spacing.sm};
   cursor: pointer;
   background: ${(props) =>

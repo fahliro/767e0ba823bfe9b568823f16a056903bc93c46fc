@@ -3,6 +3,7 @@ import styled from "styled-components";
 import theme from "./assets/styles/theme";
 
 import Header from "./components/Header/Header";
+import Calendar from "./components/Calendar/Calendar";
 import Modal from "./components/Modal/Modal";
 import Tab from "./components/Tab/Tab";
 import Card from "./components/Card/Card";
@@ -13,7 +14,7 @@ import menu from "./assets/data/menu.json";
 import { useMyContext } from "./context/MyContext";
 
 const Content = styled.div`
-  padding: 150px 0
+  padding: 200px 0
     ${(props) => (props.cartVisible ? "120px" : theme.spacing.xs)} 0;
 `;
 
@@ -25,6 +26,7 @@ const Today = styled.div`
 function App() {
   const { activeTab } = useMyContext();
   const { data } = useMyContext();
+  const { date } = useMyContext();
 
   const [scrollDown, setScrollDown] = useState(false);
   const [oldScroll, setOldScroll] = useState(0);
@@ -45,13 +47,42 @@ function App() {
 
   const cartVisible = data.length > 0 ? true : false;
 
+  const handleDate = () => {
+    let d = new Date();
+    let month = [
+      "Januari",
+      "Februari",
+      "Maret",
+      "April",
+      "Mei",
+      "Juni",
+      "Juli",
+      "Agustus",
+      "September",
+      "Oktober",
+      "November",
+      "Desember",
+    ];
+
+    return (
+      date.day +
+      ". " +
+      date.date +
+      " " +
+      month[d.getMonth()] +
+      " " +
+      d.getFullYear()
+    );
+  };
+
   return (
     <>
       <Header />
+      <Calendar />
       <Modal />
       <Tab visible={!scrollDown ? true : false} />
       <Content cartVisible={cartVisible}>
-        <Today>Kamis. 13 Maret 2019</Today>
+        <Today>{handleDate()}</Today>
         {items.map((item, index) => {
           return (
             <Card

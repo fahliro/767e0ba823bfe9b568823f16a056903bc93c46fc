@@ -7,6 +7,7 @@ export const useMyContext = () => {
   const [modalVisible, setModalVisible] = context.modalVisible;
   const [activeTab, setActiveTab] = context.activeTab;
   const [data, setData] = context.data;
+  const [date, setDate] = context.date;
 
   const handleModalVisible = () => {
     setModalVisible((prev) => !prev);
@@ -20,6 +21,10 @@ export const useMyContext = () => {
     setData([...data, item]);
   };
 
+  const handleDate = (selected) => {
+    setDate(selected);
+  };
+
   return {
     handleModalVisible,
     modalVisible,
@@ -27,6 +32,8 @@ export const useMyContext = () => {
     activeTab,
     handleData,
     data,
+    handleDate,
+    date,
   };
 };
 
@@ -34,6 +41,7 @@ export const MyProvider = ({ children }) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [activeTab, setActiveTab] = useState(0);
   const [data, setData] = useState([]);
+  const [date, setDate] = useState({});
 
   return (
     <MyContext.Provider
@@ -41,6 +49,7 @@ export const MyProvider = ({ children }) => {
         modalVisible: [modalVisible, setModalVisible],
         activeTab: [activeTab, setActiveTab],
         data: [data, setData],
+        date: [date, setDate],
       }}
     >
       {children}
