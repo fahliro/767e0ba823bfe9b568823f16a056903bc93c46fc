@@ -14,7 +14,7 @@ import menu from "./assets/data/menu.json";
 import { useMyContext } from "./context/MyContext";
 
 const Content = styled.div`
-  padding: 200px 0
+  padding: 220px 0
     ${(props) => (props.cartVisible ? "120px" : theme.spacing.xs)} 0;
 `;
 
