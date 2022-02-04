@@ -8,7 +8,7 @@ const Content = styled.div`
   position: fixed;
   width: 100%;
   margin-top: 70px;
-  padding: ${theme.spacing.sm};
+  padding: ${theme.spacing.md};
   background: ${theme.colors.white};
   border-bottom: 1px solid ${theme.colors.iron};
 `;
